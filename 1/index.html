@@ -23,8 +23,8 @@
 </html>
 <script>
     var b = 0;
-    var a = 0;
     var c = 0;
+    var a = 0;
     var ipt = document.querySelector('input')
     var btn = document.querySelector('button')
     var ul = document.querySelector('ul')
@@ -35,8 +35,12 @@
     var a4 = document.querySelector('.a4')
     var a5 = document.querySelector('.a5')
     btn.onclick = function () {
+        if (ipt.value == '') {
+            alert('内容为空')
+            return
+        }
         var li = document.createElement("li")
-        li.innerHTML = `<input type="checkbox" class="ipt1"><span>${ipt.value}</span><span class="aa" bb='${a++}'>x</span>`
+        li.innerHTML = `<input type="checkbox" ss="1" class="ipt1"><span>${ipt.value}</span><span class="aa" bb='${a++}'>x</span>`
         console.log(li);
         var li1 = document.querySelectorAll('li')
         a1.innerHTML = a + 'item left'
@@ -48,45 +52,92 @@
             s2[i].onclick = function () {
                 ul.removeChild(this.parentNode)
                 console.log(this);
+                a--;
             }
         }
         for (var i = 0; i < ipt1.length; i++) {
-            ipt1[i].setAttribute('ss', 1)
-            ipt1[i].addEventListener('change', function () {
-                console.log(this);
-                if (this.getAttribute('ss') == 1) {
-                    this.setAttribute('ss', 2)
-                    this.parentNode.style.background = "red"
-                } else {
-                    this.setAttribute('ss', 1)
-                    this.parentNode.style.background = ""
-                }
+            // ipt1[i].setAttribute('ss', 1)
+            ipt1[i].setAttribute('id', i)
+            ipt1[i].addEventListener('click', function (e) {
+                var bb = 0
+                console.log(this.getAttribute('id'));
+                console.log(e.path[0]);
+                var tt = this.getAttribute('id')
+                // if (ipt1[tt].getAttribute('ss') == 1) {
+                //     // var tt = this.getAttribute('id')
+                //     ipt1[tt].setAttribute('ss', 2)
+                //     this.parentNode.style.background = "red"
+                // } else {
+                //     // var tt = this.getAttribute('id')
+                //     ipt1[tt].setAttribute('ss', 1)
+                //     this.parentNode.style.background = ""
+                // }
                 for (var j = 0; j < ipt1.length; j++) {
-                    if (ipt1[j].getAttribute('ss') == 1) {
-                        // console.log(ipt1[j].getAttribute('ss'));
-                        b++
+                    if (ipt1[j].getAttribute('ss') == 2) {
+                        bb++
+                        b=bb
+                        a3.style.display = 'inline-block'
                     } else {
                         c++
                     }
                 }
-                console.log(b);
+                // console.log(b);
 
             })
         }
+        // for (var i = 0; i < ipt1.length; i++) {
+        //     // ipt1[i].setAttribute('ss', 1)
+        //     ipt1[i].setAttribute('id', i)
+        //     ipt1[i].addEventListener('click', function (e) {
+        //         var bb = 0
+        //         // console.log(this.getAttribute('id'));
+        //         // console.log(e.path[0]);
+        //         // var tt = this.getAttribute('id')
+        //         if (this.getAttribute('ss') == 1) {
+        //             // var tt = this.getAttribute('id')
+        //             this.setAttribute('ss', 2)
+        //             this.parentNode.style.background = "red"
+        //             return false
+        //         } else {
+        //             // var tt = this.getAttribute('id')
+        //             this.setAttribute('ss', 1)
+        //             this.parentNode.style.background = ""
+        //             return false
+        //         }
+        //         // for (var j = 0; j < ipt1.length; j++) {
+        //         //     if (ipt1[j].getAttribute('ss') == 2) {
+        //         //         bb++
+        //         //         b=bb
+        //         //         a3.style.display = 'inline-block'
+        //         //     } else {
+        //         //         c++
+        //         //     }
+        //         // }
+        //         // console.log(b);
 
-        if (li1.length > 0) {
+        //     })
+        // }
+        if(b>0){
             a3.style.display = 'inline-block'
-
+        }else{
+            a3.style.display = 'none'
         }
+        // for(var i =0;i<ipt1.length;i++){
+        //     if (ipt1[i].getAttribute('ss')==0) {
+        //         a3.style.display = 'inline-block'
+        //     }
+        // }
         a2.onclick = function () {
             for (var i = 0; i < li1.length; i++) {
-                li1.style.display = "block"
+                li1[i].style.display = "block"
             }
         }
         a3.onclick = function () {
             for (var i = 0; i < ipt1.length; i++) {
                 if (ipt1[i].getAttribute('ss') == 2) {
                     ipt1[i].parentNode.style.display = 'none'
+                } else {
+                    ipt1[i].parentNode.style.display = 'block'
                 }
             }
         }
@@ -94,6 +145,8 @@
             for (var i = 0; i < ipt1.length; i++) {
                 if (ipt1[i].getAttribute('ss') == 1) {
                     ipt1[i].parentNode.style.display = 'none'
+                } else {
+                    ipt1[i].parentNode.style.display = 'block'
                 }
 
             }
@@ -108,7 +161,12 @@
             }
         }
     }
+    
     ipt.addEventListener('keyup', function (e) {
+        if (ipt.value == '') {
+            alert('内容为空')
+            return
+        }
         if (e.keyCode == 13) {
             var li = document.createElement("li")
             li.innerHTML = `<input type="checkbox"><span>${ipt.value}</span><span class="aa">x</span>`
@@ -121,6 +179,7 @@
                 s2[i].onclick = function () {
                     ul.removeChild(this.parentNode)
                     console.log(this);
+                    a--;
                 }
             }
             for (var i = 0; i < ipt1.length; i++) {
@@ -134,21 +193,10 @@
                         this.setAttribute('ss', 1)
                         this.parentNode.style.background = ""
                     }
-                    for (var j = 0; j < ipt1.length; j++) {
-                        if (ipt1[j].getAttribute('ss') == 1) {
-                            // console.log(ipt1[j].getAttribute('ss'));
-                            b++
-                        } else {
-                            c++
-                        }
-                    }
-                    console.log(b);
-
                 })
             }
             if (li1.length > 0) {
                 a3.style.display = 'inline-block'
-
             }
             a2.onclick = function () {
                 for (var i = 0; i < li1.length; i++) {
@@ -159,6 +207,8 @@
                 for (var i = 0; i < ipt1.length; i++) {
                     if (ipt1[i].getAttribute('ss') == 2) {
                         ipt1[i].parentNode.style.display = 'none'
+                    } else {
+                        ipt1[i].parentNode.style.display = 'block'
                     }
                 }
             }
@@ -166,6 +216,8 @@
                 for (var i = 0; i < ipt1.length; i++) {
                     if (ipt1[i].getAttribute('ss') == 1) {
                         ipt1[i].parentNode.style.display = 'none'
+                    } else {
+                        ipt1[i].parentNode.style.display = 'block'
                     }
 
                 }
@@ -240,6 +292,18 @@
 
     .a3 {
         display: none;
+        margin: 0 10px;
+    }
 
+    .a2 {
+        margin: 0 10px;
+    }
+
+    .a4 {
+        margin: 0 10px;
+    }
+
+    .a5 {
+        margin: 0 10px;
     }
 </style>
