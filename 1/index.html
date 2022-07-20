@@ -22,9 +22,11 @@
 
 </html>
 <script>
+    // var arr = []
+    // var arr1 = []
     var b = 0;
-    var c = 0;
     var a = 0;
+    var c = 0;
     var ipt = document.querySelector('input')
     var btn = document.querySelector('button')
     var ul = document.querySelector('ul')
@@ -34,13 +36,51 @@
     var a3 = document.querySelector('.a3')
     var a4 = document.querySelector('.a4')
     var a5 = document.querySelector('.a5')
+    // if (localStorage.getItem('arr') == null) {
+    //     arr1 = []
+    //     console.log(arr);
+    // } else {
+    //     arr1 = JSON.parse(localStorage.getItem('arr'))
+    //     arr = arr1
+    //     console.log(arr);
+    //     for (var i = 0; i < arr1.length; i++) {
+    //         var a = 0
+    //         var li = document.createElement("li")
+    //         li.innerHTML = `<input type="checkbox" class="ipt1">${arr1[i]}<span>${ipt.value}</span><span class="aa" bb='${a++}'>x</span>`
+    //         ul.appendChild(li)
+    //     }
+    //     var ipt1 = document.querySelectorAll('.ipt1')
+    //     for (var i = 0; i < ipt1.length; i++) {
+    //         ipt1[i].setAttribute('ss', 1)
+    //         ipt1[i].onclick = function () {
+    //             console.log(this);
+    //             if (this.getAttribute('ss') == 1) {
+    //                 this.setAttribute('ss', 2)
+    //                 this.parentNode.style.background = "red"
+    //                 this.parentNode.style.color = "#fff"
+    //                 this.parentNode.style.textDecoration = 'line-through'
+    //             } else {
+    //                 this.setAttribute('ss', 1)
+    //                 this.parentNode.style.background = ""
+    //                 this.parentNode.style.color = "#000"
+    //                 this.parentNode.style.textDecoration = ''
+    //             }
+    //         }
+    //     }
+
+    // }
     btn.onclick = function () {
+        // var ipt = document.querySelector('input')
+        // console.log(localStorage.getItem('arr'));
+        // arr.unshift(ipt.value)
+        // arr2 = JSON.stringify(arr)
+        // localStorage.setItem('arr', arr2)
         if (ipt.value == '') {
-            alert('内容为空')
+            alert('内容不能为空');
             return
         }
         var li = document.createElement("li")
-        li.innerHTML = `<input type="checkbox" ss="1" class="ipt1"><span>${ipt.value}</span><span class="aa" bb='${a++}'>x</span>`
+        li.innerHTML = `<input type="checkbox" class="ipt1"><span>${ipt.value}</span><span class="aa" bb='${a++}'>x</span>`
         console.log(li);
         var li1 = document.querySelectorAll('li')
         a1.innerHTML = a + 'item left'
@@ -50,89 +90,69 @@
         var ipt1 = document.querySelectorAll('.ipt1')
         for (var i = 0; i < s2.length; i++) {
             s2[i].onclick = function () {
+                // var arr3 = JSON.parse(localStorage.getItem('arr'))
+                // var ee = this.getAttribute('aa')
+                // console.log(ee);
+                // arr3.splice(ee,1)
+                // JSON.stringify(localStorage.setItem('arr',arr3))
                 ul.removeChild(this.parentNode)
                 console.log(this);
-                a--;
+                a--
+                a1.innerHTML = a + 'item left'
             }
         }
         for (var i = 0; i < ipt1.length; i++) {
-            // ipt1[i].setAttribute('ss', 1)
-            ipt1[i].setAttribute('id', i)
-            ipt1[i].addEventListener('click', function (e) {
-                var bb = 0
-                console.log(this.getAttribute('id'));
-                console.log(e.path[0]);
-                var tt = this.getAttribute('id')
-                // if (ipt1[tt].getAttribute('ss') == 1) {
-                //     // var tt = this.getAttribute('id')
-                //     ipt1[tt].setAttribute('ss', 2)
-                //     this.parentNode.style.background = "red"
-                // } else {
-                //     // var tt = this.getAttribute('id')
-                //     ipt1[tt].setAttribute('ss', 1)
-                //     this.parentNode.style.background = ""
-                // }
+            var bb = 0
+            ipt1[i].setAttribute('ss', 1)
+            ipt1[i].onclick = function () {
+                console.log(this);
+                if (this.getAttribute('ss') == 1) {
+                    this.setAttribute('ss', 2)
+                    this.parentNode.style.background = "red"
+                    this.parentNode.style.color = "#fff"
+                    this.parentNode.style.textDecoration = 'line-through'
+                } else {
+                    this.setAttribute('ss', 1)
+                    this.parentNode.style.background = ""
+                    this.parentNode.style.color = "#000"
+                    this.parentNode.style.textDecoration = ''
+                }
                 for (var j = 0; j < ipt1.length; j++) {
                     if (ipt1[j].getAttribute('ss') == 2) {
+                        // console.log(ipt1[j].getAttribute('ss'));
                         bb++
-                        b=bb
-                        a3.style.display = 'inline-block'
+                        b = bb
                     } else {
                         c++
                     }
                 }
-                // console.log(b);
+                if (b > 0) {
+                    a4.style.display = 'inline-block'
+                }
+                console.log(b);
+                var dd = 0;
+                var dsj = setInterval(() => {
+                    dd += 20;
+                    this.parentNode.style.transform = 'rotateX(' + dd + 'deg)';
+                    if (dd >= 360) {
+                        clearInterval(dsj)
+                    }
+                }, 10)
 
-            })
+            }
         }
-        // for (var i = 0; i < ipt1.length; i++) {
-        //     // ipt1[i].setAttribute('ss', 1)
-        //     ipt1[i].setAttribute('id', i)
-        //     ipt1[i].addEventListener('click', function (e) {
-        //         var bb = 0
-        //         // console.log(this.getAttribute('id'));
-        //         // console.log(e.path[0]);
-        //         // var tt = this.getAttribute('id')
-        //         if (this.getAttribute('ss') == 1) {
-        //             // var tt = this.getAttribute('id')
-        //             this.setAttribute('ss', 2)
-        //             this.parentNode.style.background = "red"
-        //             return false
-        //         } else {
-        //             // var tt = this.getAttribute('id')
-        //             this.setAttribute('ss', 1)
-        //             this.parentNode.style.background = ""
-        //             return false
-        //         }
-        //         // for (var j = 0; j < ipt1.length; j++) {
-        //         //     if (ipt1[j].getAttribute('ss') == 2) {
-        //         //         bb++
-        //         //         b=bb
-        //         //         a3.style.display = 'inline-block'
-        //         //     } else {
-        //         //         c++
-        //         //     }
-        //         // }
-        //         // console.log(b);
 
-        //     })
-        // }
-        if(b>0){
-            a3.style.display = 'inline-block'
-        }else{
-            a3.style.display = 'none'
+        if (b > 0) {
+            a4.stylel.display = 'inline-block'
         }
-        // for(var i =0;i<ipt1.length;i++){
-        //     if (ipt1[i].getAttribute('ss')==0) {
-        //         a3.style.display = 'inline-block'
-        //     }
-        // }
         a2.onclick = function () {
+            var li1 = document.querySelectorAll('li')
             for (var i = 0; i < li1.length; i++) {
                 li1[i].style.display = "block"
             }
         }
         a3.onclick = function () {
+            var ipt1 = document.querySelectorAll('.ipt1')
             for (var i = 0; i < ipt1.length; i++) {
                 if (ipt1[i].getAttribute('ss') == 2) {
                     ipt1[i].parentNode.style.display = 'none'
@@ -142,6 +162,7 @@
             }
         }
         a4.onclick = function () {
+            var ipt1 = document.querySelectorAll('.ipt1')
             for (var i = 0; i < ipt1.length; i++) {
                 if (ipt1[i].getAttribute('ss') == 1) {
                     ipt1[i].parentNode.style.display = 'none'
@@ -152,58 +173,92 @@
             }
         }
         a5.onclick = function () {
+            var xx = 0;
             for (var i = 0; i < ipt1.length; i++) {
                 if (ipt1[i].getAttribute('ss') == 2) {
                     ul.removeChild(ipt1[i].parentNode)
                 } else {
                     ipt1[i].parentNode.style.display = 'block'
+                    xx++
                 }
             }
+            a1.innerHTML = xx + 'item left'
         }
     }
-    
     ipt.addEventListener('keyup', function (e) {
-        if (ipt.value == '') {
-            alert('内容为空')
-            return
-        }
         if (e.keyCode == 13) {
+            if (ipt.value == '') {
+                alert('内容不能为空');
+                return
+            }
             var li = document.createElement("li")
-            li.innerHTML = `<input type="checkbox"><span>${ipt.value}</span><span class="aa">x</span>`
+            li.innerHTML = `<input type="checkbox" class="ipt1"><span>${ipt.value}</span><span class="aa" bb='${a++}'>x</span>`
             console.log(li);
             var li1 = document.querySelectorAll('li')
+            a1.innerHTML = a + 'item left'
             ul.insertBefore(li, li1[0])
             ipt.value = ''
             var s2 = document.querySelectorAll('.aa')
+            var ipt1 = document.querySelectorAll('.ipt1')
             for (var i = 0; i < s2.length; i++) {
                 s2[i].onclick = function () {
                     ul.removeChild(this.parentNode)
                     console.log(this);
-                    a--;
+                    a--
+                    a1.innerHTML = a + 'item left'
                 }
             }
             for (var i = 0; i < ipt1.length; i++) {
+                var bb = 0
                 ipt1[i].setAttribute('ss', 1)
-                ipt1[i].addEventListener('change', function () {
+                ipt1[i].onclick = function () {
                     console.log(this);
                     if (this.getAttribute('ss') == 1) {
                         this.setAttribute('ss', 2)
                         this.parentNode.style.background = "red"
+                        this.parentNode.style.color = "#fff"
+                        this.parentNode.style.textDecoration = 'line-through'
                     } else {
                         this.setAttribute('ss', 1)
                         this.parentNode.style.background = ""
+                        this.parentNode.style.color = "#000"
+                        this.parentNode.style.textDecoration = ''
                     }
-                })
+                    for (var j = 0; j < ipt1.length; j++) {
+                        if (ipt1[j].getAttribute('ss') == 2) {
+                            // console.log(ipt1[j].getAttribute('ss'));
+                            bb++
+                            b = bb
+                        } else {
+                            c++
+                        }
+                    }
+                    if (b > 0) {
+                        a4.style.display = 'inline-block'
+                    }
+                    console.log(b);
+                    var dd = 0;
+                    var dsj = setInterval(() => {
+                        dd += 20;
+                        this.parentNode.style.transform = 'rotateX(' + dd + 'deg)';
+                        if (dd >= 360) {
+                            clearInterval(dsj)
+                        }
+                    }, 10)
+                }
             }
-            if (li1.length > 0) {
-                a3.style.display = 'inline-block'
+
+            if (b > 0) {
+                a4.style.display = 'inline-block'
             }
             a2.onclick = function () {
+                var li1 = document.querySelectorAll('li')
                 for (var i = 0; i < li1.length; i++) {
-                    li1.style.display = "block"
+                    li1[i].style.display = "block"
                 }
             }
             a3.onclick = function () {
+                var ipt1 = document.querySelectorAll('.ipt1')
                 for (var i = 0; i < ipt1.length; i++) {
                     if (ipt1[i].getAttribute('ss') == 2) {
                         ipt1[i].parentNode.style.display = 'none'
@@ -213,6 +268,7 @@
                 }
             }
             a4.onclick = function () {
+                var ipt1 = document.querySelectorAll('.ipt1')
                 for (var i = 0; i < ipt1.length; i++) {
                     if (ipt1[i].getAttribute('ss') == 1) {
                         ipt1[i].parentNode.style.display = 'none'
@@ -223,13 +279,16 @@
                 }
             }
             a5.onclick = function () {
+                var xx = 0;
                 for (var i = 0; i < ipt1.length; i++) {
                     if (ipt1[i].getAttribute('ss') == 2) {
                         ul.removeChild(ipt1[i].parentNode)
                     } else {
                         ipt1[i].parentNode.style.display = 'block'
+                        xx++
                     }
                 }
+                a1.innerHTML = xx + 'item left'
             }
         }
     })
@@ -276,6 +335,7 @@
         border: none;
         border-bottom: 2px dashed orangered;
         margin-left: 80px;
+
     }
 
     button {
@@ -291,19 +351,19 @@
     }
 
     .a3 {
-        display: none;
-        margin: 0 10px;
-    }
-
-    .a2 {
-        margin: 0 10px;
+        margin: 0px 10px;
     }
 
     .a4 {
-        margin: 0 10px;
+        display: none;
+        margin: 0px 10px;
     }
 
-    .a5 {
-        margin: 0 10px;
+    .a2 {
+        margin: 0px 10px;
+    }
+
+    li {
+        list-style: none;
     }
 </style>
