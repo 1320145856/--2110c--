@@ -12,16 +12,24 @@
     <div class="box">
         <img class="img1" src="./C86AC59B-F30C-4DD2-83E4-04D59D520A56.png"><span class="s1">To-DoList</span>
         <h3>~ Today l need to ~</h3>
-        <input class="ipt" type="text" placeholder="Add new todo..."><button>Submit</button>
+        <input class="ipt" type="text" placeholder="Add new todo..." onkeydown="zz(event)"><button>Submit</button>
         <ul>
+           
         </ul>
-        <p><span class="a1">0item left</span><span class="a2">All</span><span class="a3">Ac</span><span
-                class="a4">com</span><span class="a5">clear</span></p>
+        <h4>暂无数据</h4>
+        <p><span class="a1">0item left</span><span class="a2" onclick="qb()">All</span><span class="a3" onclick="wwc()">Ac</span><span class="a4" onclick="ywc()">com</span><span class="a5" onclick="xzsc()">clear</span></p>
     </div>
+    
 </body>
 
-</html>
-<script>
+</html>\
+<script src="./index.js"></script>
+<!-- <script>
+    function zz(e){
+        console.log(e);
+    }
+</script> -->
+<!-- <script>
     // var arr = []
     // var arr1 = []
     var b = 0;
@@ -293,10 +301,13 @@
         }
     })
 
-</script>
+</script> -->
 <style>
     body {
         background: pink;
+    }
+    ul{
+        padding: 0;
     }
 
     .box {
@@ -355,15 +366,28 @@
     }
 
     .a4 {
-        display: none;
+        /* display: none; */
         margin: 0px 10px;
     }
 
     .a2 {
         margin: 0px 10px;
     }
-
+/* 
     li {
         list-style: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        
+    } */
+    .btn{
+        float: right;
+    }
+    li{
+        list-style: none;
+    }
+    h4{
+        display: block;
     }
 </style>
