@@ -19,16 +19,15 @@ function zz(e) {
         zwsj();
         xr(array);
         sl1();
-        var code = localStorage.getItem('code');
-        if (code == '1') {
-            qb();
-        }
-        else if (code == '2') {
-            ywc();
-        }
-        else if (code == '3') {
-            wwc();
-        }
+        qb();
+        // let code = localStorage.getItem('code')
+        // if(code == '1'){
+        //     qb()
+        // }else if(code == '2'){
+        //     ywc()
+        // }else if(code == '3'){
+        //     wwc()
+        // }
         // array = []
     }
 }
@@ -90,8 +89,8 @@ function xr(array1) {
 }
 function zwsj() {
     var h4 = document.querySelector('h4');
-    var li = document.querySelectorAll('li');
-    if (li.length == 0) {
+    // let li = document.querySelectorAll('li')
+    if (array.length == 0) {
         h4.style.display = 'block';
     }
     else {
@@ -104,7 +103,7 @@ function sl1() {
     a1.innerHTML = "".concat(array.length);
 }
 function wwc() {
-    sessionStorage.setItem('code', '3');
+    // sessionStorage.setItem('code', '3')
     var li = document.querySelectorAll('li');
     var ipt = document.querySelectorAll('.ipt');
     for (var i = 0; i < array.length; i++) {
@@ -117,7 +116,7 @@ function wwc() {
     }
 }
 function ywc() {
-    sessionStorage.setItem('code', '2');
+    // sessionStorage.setItem('code', '2')
     var li = document.querySelectorAll('li');
     // let sl: Element = document.querySelector('.sl') as Element
     var ipt = document.querySelectorAll('.ipt');
@@ -131,7 +130,7 @@ function ywc() {
     }
 }
 function qb() {
-    sessionStorage.setItem('code', '1');
+    // sessionStorage.setItem('code', '1')
     // xr(todoArray1)
     var li = document.querySelectorAll('li');
     // let ipt: NodeListOf<HTMLInputElement> = document.querySelectorAll('.ipt')

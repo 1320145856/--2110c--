@@ -5,6 +5,10 @@
 我们既要允许传入任意类型的值，又要正确指定返回值类型，就要使用泛型。
 
 ```
+/**
+*  new Array(),创建数组的长度
+* .fill,填充数组的方法,将数据填充到其中,分别以不同的数据类型进行填充
+**/
 const getArray = <T>(value: T, times: number = 5): T[] => {
   return new Array(times).fill(value);
 };

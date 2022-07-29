@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" class="ipt" onkeyup="sc(event)">
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    编号
+                    <img id="img1" class="qq" src="./arrow-red.png" alt="" onclick="px()">
+                </th>
+                <th>
+                    商品名称
+                </th>
+                <th>
+                    价格
+                    <img id="img1" src="./arrow-red.png" alt="" onclick="px1()">
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <div class="db">
+        <p>
+            每页<input type="text" class="ipt1" onkeyup="ts(event)" />条，共10条
+        </p>
+        <ul>
+           
+        </ul>
+    </div>
+</body>
+
+</html>
+<script src="./index.js"></script>
+<style>
+    th {
+        width: 500px;
+        line-height: 35px;
+
+    }
+
+    #img1 {
+        position: absolute;
+    }
+
+    .xz {
+        transform: rotateX(180deg);
+    }
+
+    .ipt1 {
+        width: 20px;
+    }
+
+    .db {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    p {
+        width: 40%;
+    }
+
+    ul {
+        width: 40%;
+        text-align: right;
+        margin-right: 300px;
+    }
+
+    li {
+        display: inline-block;
+        /* padding: 5px 10px;
+        border: 1px solid #000;
+        list-style: none; */
+    }
+    span{
+        padding: 5px 10px;
+        border: 1px solid #000;
+        list-style: none;
+    }
+</style>

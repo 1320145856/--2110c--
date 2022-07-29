@@ -29,16 +29,7 @@ function zz(e: { keyCode: number; target: { value: string } }): void {
         zwsj()
         xr(array)
         sl1()
-        let code = localStorage.getItem('code')
-        if(code == '1'){
-            qb()
-        }else if(code == '2'){
-            ywc()
-        }else if(code == '3'){
-            wwc()
-        }
-
-        // array = []
+        qb()
     }
 }
 // let btn: NodeListOf<HTMLButtonElement> 
@@ -98,8 +89,8 @@ function xr(array1: todoArray1) {
 
 function zwsj() {
     let h4: HTMLHeadingElement = document.querySelector('h4') as HTMLHeadingElement
-    let li = document.querySelectorAll('li')
-    if (li.length == 0) {
+    // let li = document.querySelectorAll('li')
+    if (array.length == 0) {
         h4.style.display = 'block'
     } else {
         h4.style.display = 'none'
@@ -116,7 +107,7 @@ function sl1() {
 
 
 function wwc() {
-    sessionStorage.setItem('code', '3')
+    // sessionStorage.setItem('code', '3')
     let li = document.querySelectorAll('li')
     let ipt: NodeListOf<HTMLInputElement> = document.querySelectorAll('.ipt')
     for (let i = 0; i < array.length; i++) {
@@ -132,7 +123,7 @@ function wwc() {
 
 
 function ywc() {
-    sessionStorage.setItem('code', '2')
+    // sessionStorage.setItem('code', '2')
     let li: NodeListOf<HTMLLIElement> = document.querySelectorAll('li')
     // let sl: Element = document.querySelector('.sl') as Element
     let ipt: NodeListOf<HTMLInputElement> = document.querySelectorAll('.ipt')
@@ -149,7 +140,7 @@ function ywc() {
 
 
 function qb() {
-    sessionStorage.setItem('code', '1')
+    // sessionStorage.setItem('code', '1')
     // xr(todoArray1)
     let li = document.querySelectorAll('li')
     // let ipt: NodeListOf<HTMLInputElement> = document.querySelectorAll('.ipt')
